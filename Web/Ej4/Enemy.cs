@@ -5,7 +5,7 @@
         public float HealthPoints { get; set; }
         public int Level { get; set; }
 
-        public Enemy(int level = 1, float healPoints = 1000)
+        public Enemy(int level = 1, float healPoints = 400)
         {          
             Level = level;
             HealthPoints = healPoints * level;
