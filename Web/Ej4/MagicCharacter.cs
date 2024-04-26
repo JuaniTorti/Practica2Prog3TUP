@@ -1,6 +1,6 @@
 ﻿namespace Web.Ej4
 {
-    public class MagicCharacter : Character
+    public class MagicCharacter : Character , IFight
     {
         public MagicCharacter(string name, float force, float agility, float magic = 60)
         {
@@ -17,9 +17,22 @@
 
         }
 
-        public new string Atack()
+        public new float Atack(Enemy enemy)
         {
-            return $"{Name} hizo {CalculateDamage()} de daño gracias a su magia";
+            enemy.HealthPoints = enemy.HealthPoints - CalculateDamage();
+
+            Console.WriteLine($"{Name} hizo {CalculateDamage()} de daño gracias a su magia");
+
+            return CalculateDamage();
+        }
+
+        public string Heal()
+        {
+            return $"El Personaje {Name} se ah curado";
+        }
+        public string Defense()
+        {
+            return $"El personaje {Name} activo su defensa";
         }
     }
 }
